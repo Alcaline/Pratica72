@@ -10,15 +10,15 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- */
+/**@author Guilherme Jacichen <gui_jaci@yahoo.com.br>**/
+
 public class Pratica72 {
     static final String EXTENSAO_IN = ".txt";
     static final String EXTENSAO_OUT = ".csv";
+    static final Scanner LER_TECLADO = new Scanner(System.in);
 
     public static void main(String[] args) {
         HashMap<String, Integer> listaPalavras = new HashMap<>();
-        Scanner lerTeclado = new Scanner(System.in);
         BufferedReader lerTxt;
         BufferedWriter gravarTxt;
         String palavra, caminhoIn, caminhoOut, arqNome, linha;
@@ -26,7 +26,7 @@ public class Pratica72 {
         while(true){
             try{
                 System.out.println("Digite o caminho do arquivo de texto(*.txt):");
-                caminhoIn = lerTeclado.next();
+                caminhoIn = LER_TECLADO.next();
                 if(!caminhoIn.endsWith(EXTENSAO_IN)){
                     System.out.println("O arquivo deve ser do tipo *.txt");
                     continue;
@@ -57,7 +57,7 @@ public class Pratica72 {
                 }
             }
             lerTxt.close();
-        } catch (IOException e) {
+        }catch(IOException e) {
             Logger.getLogger(Pratica72.class.getName()).log(Level.SEVERE, null, e);
         }
         
@@ -82,7 +82,7 @@ public class Pratica72 {
         
         while(true){
             System.out.println("Digite a palavra para busca.");
-            palavra = lerTeclado.next().toLowerCase().trim();
+            palavra = LER_TECLADO.next().toLowerCase().trim();
             
             for(int i = 0; i < palavra.length(); i++)
                 if(!Character.isAlphabetic(palavra.charAt(i))){
