@@ -40,7 +40,7 @@ public class Pratica72 {
         
         try {
             while((linha = lerTxt.readLine()) != null){
-                linha = linha.trim();
+                linha = linha.trim() + " ";
                 palavra = "";
                 for(int i = 0; i < linha.length(); i++){
                     if(Character.isAlphabetic(linha.charAt(i))){
